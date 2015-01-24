@@ -7,8 +7,9 @@
           </welcome-file-list>
            <security-constraint>
                 <web-resource-collection>
-                      <web-resource-name>Success</web-resource-name>
+                      <web-resource-name>testResource</web-resource-name>
                       <url-pattern>/welcome.jsp</url-pattern>
+                      <url-pattern>/index.jsp</url-pattern>
                      <http-method>GET</http-method>
                      <http-method>POST</http-method>
                 </web-resource-collection>
