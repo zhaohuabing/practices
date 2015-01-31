@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<f:loadBundle basename="i18n.messages" var="msgs" />
+<h:head></h:head>
+<h:body>
+	<h:inputText id="counter">
+		<p:ajax update="count" listener="#{testBean.increment}" />
+	</h:inputText>
+
+	<h:outputText id="count" value="#{testBean.count}" />
+
+	<br></br>
+***********
+<h:outputText id="i18ntest" value="#{msgs['system.name']}" />
+**********
+	<br></br>
+
+
+	<p:autoComplete value="#{testBean.text}"
+		completeMethod="#{testBean.complete}" />
+
+
+
+	<h:form>
+		<h:inputText id="inputName" value="#{testBean.text}"></h:inputText>
+		<h:commandButton value="Show Message">
+			<f:ajax execute="inputName" render="outputMessage" />
+		</h:commandButton>
+		<h2>
+			<h:outputText id="outputMessage"
+				value="#{testBean.text !=null ?
+            testBean.text : ''}" />
+		</h2>
+	</h:form>
+
+
+</h:body>
+</html>

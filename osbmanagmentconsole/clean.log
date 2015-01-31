@@ -1,4 +1,12 @@
 [INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.oracle.oc2:omc:war:1.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-war-plugin is missing. @ line 142, column 12
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
 [INFO] Building OSB Managment Console 1.0-SNAPSHOT
@@ -9,9 +17,16 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 0.565 s
-[INFO] Finished at: 2015-01-30T18:28:31+08:00
+[INFO] Total time: 0.477 s
+[INFO] Finished at: 2015-01-31T22:06:29+08:00
 [INFO] Final Memory: 7M/150M
 [INFO] ------------------------------------------------------------------------
-ki.apache.org/confluence/display/MAVEN/ProjectBuildingException
-[ERROR] [Help 2] http://cwiki.apache.org/confluence/display/MAVEN/ModelParseException
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-clean-plugin:2.5:clean (default-clean) on project omc: Failed to clean project: Failed to delete C:\Users\huabzhao\Documents\GitHub\practices\osbmanagmentconsole\target -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+ExecutionException
+EN/MojoExecutionException

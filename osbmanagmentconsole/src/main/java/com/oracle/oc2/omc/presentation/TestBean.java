@@ -3,7 +3,19 @@ package com.oracle.oc2.omc.presentation;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.oracle.oc2.omc.utils.I18NUtil;
+
+@Controller
 public class TestBean implements Serializable {
+	private static Logger log = Logger.getLogger(TestBean.class);
+
+	@Autowired
+	private I18NUtil i18NUtil;
+
 	private String text = "xxxx";
 
 	private int count;
@@ -16,10 +28,13 @@ public class TestBean implements Serializable {
 
 	public void setCount(int count) {
 		this.count = count;
+		log.info("set count");
 	}
 
 	public String getText() {
-		return text;
+
+		log.info("*********get text**********");
+		return i18NUtil.getMessage("system.name");
 	}
 
 	public void setText(String text) {
@@ -27,8 +42,6 @@ public class TestBean implements Serializable {
 	}
 
 	public ArrayList<String> complete(String query) {
-		System.out
-				.println("#######################TestBean######################");
 		try {
 			ArrayList<String> results = new ArrayList<String>();
 			for (int i = 0; i < 10; i++)

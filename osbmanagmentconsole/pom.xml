@@ -25,6 +25,12 @@
 
 	<dependencies>
 
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.9</version>
+		</dependency>
+
 		<!-- Spring framework -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -39,8 +45,8 @@
 		</dependency>
 
 
-		<!-- For Java EE Application Server, uncomment this library and comment 
-			the rest of the libraries -->
+		<!-- For Java EE Application Server, uncomment this library and comment the rest 
+			of the libraries -->
 		<dependency>
 			<groupId>javax.faces</groupId>
 			<artifactId>jsf-api</artifactId>
@@ -97,7 +103,6 @@
 			<artifactId>all-themes</artifactId>
 			<version>1.0.10</version>
 		</dependency>
-
 	</dependencies>
 
 	<build>
@@ -114,7 +119,7 @@
 				</configuration>
 			</plugin>
 
-			<!--  copy primefaces javascripts source for debug -->
+			<!-- copy primefaces javascripts source for debug -->
 			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<executions>
@@ -123,8 +128,7 @@
 
 						<configuration>
 							<tasks>
-								<copy overwrite="true"
-									file="${basedir}/primefacesjssource/primefaces-5.1.jar"
+								<copy overwrite="true" file="${basedir}/primefacesjssource/primefaces-5.1.jar"
 									todir="${basedir}/target/OSBManagmentConsole/WEB-INF/lib" />
 							</tasks>
 						</configuration>
@@ -133,6 +137,14 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<warSourceExcludes>WEB-INF/lib/primefaces-5.1.jar</warSourceExcludes>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

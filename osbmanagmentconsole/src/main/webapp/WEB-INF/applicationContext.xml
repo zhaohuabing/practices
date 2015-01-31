@@ -1,17 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
 <beans xmlns="http://www.springframework.org/schema/beans"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://www.springframework.org/schema/beans
-http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
- 
-	<!-- Database Configuration -->
-	<!--
-	    <import resource="classes/config/spring/beans/DataSource.xml"/>
-	    <import resource="classes/config/spring/beans/HibernateSessionFactory.xml"/>
-    -->
- 
-	<!-- Beans Declaration -->
-	<!--
-	<import resource="classes/com/mkyong/customer/spring/CustomerBean.xml"/>
-	-->
- 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- auto wire setting-->
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+    
+    <!-- I18N setting -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="i18n.messages"/>
+    </bean>
+    
+    <!-- automatically load all the beans under package "com.oracle.oc2.omc" into spring
+        container -->
+    <context:component-scan base-package="com.oracle.oc2.omc"/>
+    
+    
 </beans>

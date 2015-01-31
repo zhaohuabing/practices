@@ -103,16 +103,7 @@ under the License.
       <nonProxyHosts>local.net|some.host.com</nonProxyHosts>
     </proxy>
     -->
-    <proxy>
-      <id>optional</id>
-      <active>true</active>
-      <protocol>http</protocol>
-      <username></username>
-      <password></password>
-      <host>cn-proxy.jp.oracle.com</host>
-      <port>80</port>
-      <nonProxyHosts>10.*|127.0.0.1</nonProxyHosts>
-    </proxy>
+
   </proxies>
 
   <!-- servers
