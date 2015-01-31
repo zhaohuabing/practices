@@ -1,0 +1,17 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OSB Managment Console 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ omc ---
+[INFO] Deleting C:\Users\huabzhao\Documents\GitHub\practices\osbmanagmentconsole\target
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 0.565 s
+[INFO] Finished at: 2015-01-30T18:28:31+08:00
+[INFO] Final Memory: 7M/150M
+[INFO] ------------------------------------------------------------------------
+ki.apache.org/confluence/display/MAVEN/ProjectBuildingException
+[ERROR] [Help 2] http://cwiki.apache.org/confluence/display/MAVEN/ModelParseException

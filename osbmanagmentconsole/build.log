@@ -1,0 +1,41 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OSB Managment Console 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ omc ---
+[WARNING] Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.1:compile (default-compile) @ omc ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ omc ---
+[WARNING] Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\huabzhao\Documents\GitHub\practices\osbmanagmentconsole\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.1:testCompile (default-testCompile) @ omc ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ omc ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.3:run (default) @ omc ---
+[INFO] Executing tasks
+     [copy] Copying 1 file to C:\Users\huabzhao\Documents\GitHub\practices\osbmanagmentconsole\target\OSBManagmentConsole\WEB-INF\lib
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.439 s
+[INFO] Finished at: 2015-01-30T18:34:07+08:00
+[INFO] Final Memory: 9M/150M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-antrun-plugin:1.3:run (default) on project omc: An Ant BuildException has occured: Failed to copy C:\Users\huabzhao\Documents\GitHub\practices\osbmanagmentconsole\primefacesjssource\primefaces-5.1.jar to C:\Users\huabzhao\Documents\GitHub\practices\osbmanagmentconsole\target\OSBManagmentConsole\WEB-INF\lib\primefaces-5.1.jar due to java.io.FileNotFoundException C:\Users\huabzhao\Documents\GitHub\practices\osbmanagmentconsole\target\OSBManagmentConsole\WEB-INF\lib\primefaces-5.1.jar (另一个程序正在使用此文件，进程无法访问。) and I couldn't delete the corrupt C:\Users\huabzhao\Documents\GitHub\practices\osbmanagmentconsole\target\OSBManagmentConsole\WEB-INF\lib\primefaces-5.1.jar -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+----------------------------------------------------------------------

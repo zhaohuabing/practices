@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<weblogic-web-app xmlns="http://xmlns.oracle.com/weblogic/weblogic-web-app"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.oracle.com/weblogic/weblogic-web-app http://xmlns.oracle.com/weblogic/weblogic-web-app/1.3/weblogic-web-app.xsd">
+	<security-role-assignment>
+		<role-name>admin</role-name>
+		<principal-name>osbadmin</principal-name>
+	</security-role-assignment>
+	<security-role-assignment>
+		<role-name>monitor</role-name>
+		<principal-name>osbmonitor</principal-name>
+	</security-role-assignment>
+	<library-ref>
+		<library-name>jsf</library-name>
+	</library-ref>
+</weblogic-web-app>
