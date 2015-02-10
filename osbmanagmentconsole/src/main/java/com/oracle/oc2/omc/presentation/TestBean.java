@@ -11,6 +11,11 @@ import com.oracle.oc2.omc.utils.I18NUtil;
 
 @Controller
 public class TestBean implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 145923723570550043L;
+
 	private static Logger log = Logger.getLogger(TestBean.class);
 
 	@Autowired
@@ -34,7 +39,7 @@ public class TestBean implements Serializable {
 	public String getText() {
 
 		log.info("*********get text**********");
-		return i18NUtil.getMessage("system.name");
+		return i18NUtil.getMessage("system.name") + text;
 	}
 
 	public void setText(String text) {

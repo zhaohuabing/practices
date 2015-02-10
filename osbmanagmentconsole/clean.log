@@ -1,23 +1,14 @@
 [INFO] Scanning for projects...
-[WARNING] 
-[WARNING] Some problems were encountered while building the effective model for com.oracle.oc2:omc:war:1.0-SNAPSHOT
-[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-war-plugin is missing. @ line 148, column 12
-[WARNING] 
-[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
-[WARNING] 
-[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
-[WARNING] 
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
 [INFO] Building OSB Managment Console 1.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ omc ---
-[INFO] Deleting C:\Users\huabzhao\Documents\GitHub\practices\osbmanagmentconsole\target
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 0.335 s
-[INFO] Finished at: 2015-02-01T18:31:13+08:00
-[INFO] Final Memory: 7M/150M
+[INFO] Total time: 0.461 s
+[INFO] Finished at: 2015-02-05T17:54:54+08:00
+[INFO] Final Memory: 6M/119M
 [INFO] ------------------------------------------------------------------------

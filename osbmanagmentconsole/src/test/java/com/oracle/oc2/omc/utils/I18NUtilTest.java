@@ -7,7 +7,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "../../../../../applicationContext.xml" })
+@ContextConfiguration(locations = { "../../../../../config/applicationContext.xml" })
 public class I18NUtilTest {
 
 	@Autowired
@@ -15,7 +15,10 @@ public class I18NUtilTest {
 
 	@Test
 	public void testGetMessage() {
-		i18nUtil.getMessage("system.name").equals("OSB管理平台");
+		i18nUtil.getMessage("junit.test1").equals("单元测试");
+
+		i18nUtil.getMessage("junit.test2", new String[] { "参数1", "参数2" })
+				.equals("单元参数1测试参数2");
 	}
 
 	public void tetGetMessageDefault() {
