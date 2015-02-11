@@ -1,0 +1,85 @@
+ <project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  
+  <!-- Change this to something akin to your java package structure -->
+  <groupId>com.zhaohuabing.practice</groupId>
+  <modelVersion>4.0.0</modelVersion>
+  <!-- Version of this app -->
+  <version>0.1-alpha1</version>
+  <!-- Base name of the war file without .war ext -->
+  <artifactId>HelloWorldPortlet</artifactId>
+  <packaging>war</packaging>
+  <name>${pom.artifactId}</name>
+  <!-- Dependency Version Properties ======================================= -->
+  <properties>
+    <pluto.version>2.0.3</pluto.version>
+    <portlet-api.version>1.0</portlet-api.version>
+    <servlet-api.version>2.4</servlet-api.version>
+    <jsp-api.version>2.0</jsp-api.version>
+    <junit.version>3.8.1</junit.version>
+  </properties>  
+  <dependencies>
+    <dependency>
+      <groupId>javax.portlet</groupId>
+      <artifactId>portlet-api</artifactId>
+      <version>${portlet-api.version}</version>
+      <scope>provided</scope><!-- Prevents addition to war file -->
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>${servlet-api.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.portals.pluto</groupId>
+      <artifactId>pluto-util</artifactId>
+      <version>${pluto.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- Any other build or deployment dependancies go here -->
+  </dependencies>
+  <build>
+    <finalName>${pom.name}</finalName>
+    <plugins>
+      <!-- configure to use Java 6 to compile (change to your JDK) --> 
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+              <source>1.6</source>
+              <target>1.6</target>
+          </configuration>
+       </plugin>
+      <!-- configure maven-war-plugin to use updated web.xml -->
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <webXml>${project.build.directory}/pluto-resources/web.xml</webXml>
+        </configuration>
+      </plugin>
+      <!-- bind 'pluto2:assemble' goal to 'generate-resources' lifecycle -->
+      <plugin>
+        <groupId>org.apache.portals.pluto</groupId>
+        <artifactId>maven-pluto-plugin</artifactId>
+        <version>${pluto.version}</version>
+        <executions>
+          <execution>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>assemble</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  
+</project>
