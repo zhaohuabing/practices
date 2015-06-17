@@ -11,13 +11,30 @@
     <Attr Name="_jprName" Value="../../Model.jpr"/>
     <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
     <Attr Name="_NamedConnection" Value="HR"/>
+    <Attr Name="_appModuleNames0" Value="model.service.HRServiceAppModule"/>
   </DesignTime>
   <Containee
-    Name="model"
-    PackageName="model"
+    Name="entity"
+    PackageName="model.entity"
     ObjectType="JboPackage">
     <DesignTime>
       <Attr Name="_EO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="service"
+    PackageName="model.service"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AM" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="view"
+    PackageName="model.view"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
     </DesignTime>
   </Containee>
 </JboProject>
