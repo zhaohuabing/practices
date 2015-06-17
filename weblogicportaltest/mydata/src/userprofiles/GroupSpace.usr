@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<propertyset is-complete="true"
+    xmlns="http://www.bea.com/servers/p13n/xsd/property-set/1.0.1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bea.com/servers/p13n/xsd/property-set/1.0.1 property-set-1_0_1.xsd">
+    <name>GroupSpace</name>
+    <description>Explicit properties defined in the GroupSpace entity</description>
+    <type>USER</type>
+    <property>
+        <name>im_id</name>
+        <description>Instant Messenger User ID</description>
+        <is-multivalued>false</is-multivalued>
+        <is-restricted>false</is-restricted>
+        <datatype>Text</datatype>
+    </property>
+    <property>
+        <name>email</name>
+        <description>Email Address</description>
+        <is-multivalued>false</is-multivalued>
+        <is-restricted>false</is-restricted>
+        <datatype>Text</datatype>
+    </property>
+    <property>
+        <name>first_name</name>
+        <description>First Name</description>
+        <is-multivalued>false</is-multivalued>
+        <is-restricted>false</is-restricted>
+        <datatype>Text</datatype>
+    </property>
+    <property>
+        <name>last_name</name>
+        <description>Last Name</description>
+        <is-multivalued>false</is-multivalued>
+        <is-restricted>false</is-restricted>
+        <datatype>Text</datatype>
+    </property>
+    <property>
+        <name>phone_number</name>
+        <description>Telephone Number</description>
+        <is-multivalued>false</is-multivalued>
+        <is-restricted>false</is-restricted>
+        <datatype>Text</datatype>
+    </property>
+    <property>
+        <name>title</name>
+        <description>Organizational Title</description>
+        <is-multivalued>false</is-multivalued>
+        <is-restricted>false</is-restricted>
+        <datatype>Text</datatype>
+    </property>
+    <property>
+        <name>timezone</name>
+        <description>Localized timezone</description>
+        <is-multivalued>false</is-multivalued>
+        <is-restricted>false</is-restricted>
+        <datatype>Text</datatype>
+    </property>
+</propertyset>
