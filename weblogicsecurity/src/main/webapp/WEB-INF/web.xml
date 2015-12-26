@@ -2,26 +2,39 @@
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 <web-app>
-          <welcome-file-list>
-               <welcome-file>welcome.jsp</welcome-file>
-          </welcome-file-list>
-           <security-constraint>
-                <web-resource-collection>
-                      <web-resource-name>testResource</web-resource-name>
-                      <url-pattern>/welcome.jsp</url-pattern>
-                      <url-pattern>/index.jsp</url-pattern>
-                     <http-method>GET</http-method>
-                     <http-method>POST</http-method>
-                </web-resource-collection>
-                <auth-constraint>
-                    <role-name>webuser</role-name> 
-                </auth-constraint>
-          </security-constraint>
-           <login-config>
-              <auth-method>BASIC</auth-method>
-              <realm-name>default</realm-name>
-          </login-config>
-            <security-role>
-               <role-name>webuser</role-name>
-           </security-role>
-    </web-app>
+    
+    <filter>
+        <filter-name>SSOTokenFilter</filter-name>
+        <filter-class>com.sample.SSOTokenFilter</filter-class>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>SSOTokenFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <welcome-file-list>
+        <welcome-file>welcome.jsp</welcome-file>
+    </welcome-file-list>
+    
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>testResource</web-resource-name>
+            <url-pattern>/welcome.jsp</url-pattern>
+            <url-pattern>/index.jsp</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>webuser</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>CLIENT-CERT</auth-method>
+        <realm-name>default</realm-name>
+    </login-config>
+    
+    <security-role>
+        <role-name>webuser</role-name>
+    </security-role>
+</web-app>

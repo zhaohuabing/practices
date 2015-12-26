@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+
+  <managed-bean id="__8">
+    <managed-bean-name id="__5">HomeBean</managed-bean-name>
+    <managed-bean-class id="__6">adf.sample.managed.bean.HomeManagedBean</managed-bean-class>
+    <managed-bean-scope id="__7">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__15">
+    <managed-bean-name id="__14">login</managed-bean-name>
+    <managed-bean-class id="__16">adf.sample.managed.login.LoginBean</managed-bean-class>
+    <managed-bean-scope id="__13">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__1">
+    <managed-bean-name>UserSearchBean</managed-bean-name>
+    <managed-bean-class>adf.sample.managed.bean.UserSearchBean</managed-bean-class>
+    <managed-bean-scope>view</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

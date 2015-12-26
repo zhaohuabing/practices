@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.8" id="DataBindings"
+             SeparateXMLFiles="false" Package="view" ClientType="Generic">
+  <pageMap>
+    <page path="/department.jsf" usageId="view_departmentPageDef"/>
+    <page path="/departments.jsf" usageId="view_departmentsPageDef"/>
+    <page path="/employee.jsf" usageId="view_employeePageDef"/>
+    <page path="PageFlow#ExecuteWithParams" usageId="view_adfc_config___ExecuteWithParamsPageDef"/>
+    <page path="/untitled1.jspx" usageId="view_untitled1PageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_departmentPageDef" path="view.pageDefs.departmentPageDef"/>
+    <page id="view_departmentsPageDef" path="view.pageDefs.departmentsPageDef"/>
+    <page id="view_employeePageDef" path="view.pageDefs.employeePageDef"/>
+    <page id="view_adfc_config___ExecuteWithParamsPageDef" path="view.pageDefs.adfc_config___ExecuteWithParamsPageDef"/>
+    <page id="view_untitled1PageDef" path="view.pageDefs.untitled1PageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="HRServiceAppModuleDataControl" Package="com.oracle.huabing.model.service"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="HRServiceAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

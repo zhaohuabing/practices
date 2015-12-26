@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelHeader text="Job Data" id="pb1">
+    <f:facet name="toolbar">
+      <af:toolbar id="t1">
+        <af:panelGroupLayout id="pgl1" layout="horizontal">
+          <af:train value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}" id="t2"/>
+        </af:panelGroupLayout>
+      </af:toolbar>
+    </f:facet>
+    <af:panelFormLayout id="pfl1">
+      <af:inputListOfValues id="jobIdId" popupTitle="Search and Select: #{bindings.JobId.hints.label}"
+                            value="#{bindings.JobId.inputValue}" label="#{bindings.JobId.hints.label}"
+                            model="#{bindings.JobId.listOfValuesModel}" required="#{bindings.JobId.hints.mandatory}"
+                            columns="#{bindings.JobId.hints.displayWidth}" shortDesc="#{bindings.JobId.hints.tooltip}">
+        <f:validator binding="#{bindings.JobId.validator}"/>
+      </af:inputListOfValues>
+      <af:selectOneChoice value="#{bindings.DepartmentId.inputValue}" label="#{bindings.DepartmentId.label}"
+                          required="#{bindings.DepartmentId.hints.mandatory}"
+                          shortDesc="#{bindings.DepartmentId.hints.tooltip}" id="soc1">
+        <f:selectItems value="#{bindings.DepartmentId.items}" id="si1"/>
+      </af:selectOneChoice>
+      <af:inputText value="#{bindings.PhoneNumber.inputValue}" label="#{bindings.PhoneNumber.hints.label}"
+                    required="#{bindings.PhoneNumber.hints.mandatory}"
+                    columns="#{bindings.PhoneNumber.hints.displayWidth}"
+                    maximumLength="#{bindings.PhoneNumber.hints.precision}"
+                    shortDesc="#{bindings.PhoneNumber.hints.tooltip}" id="it1">
+        <f:validator binding="#{bindings.PhoneNumber.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.ManagerId.inputValue}" label="#{bindings.ManagerId.hints.label}"
+                    required="#{bindings.ManagerId.hints.mandatory}" columns="#{bindings.ManagerId.hints.displayWidth}"
+                    maximumLength="#{bindings.ManagerId.hints.precision}"
+                    shortDesc="#{bindings.ManagerId.hints.tooltip}" id="it2">
+        <f:validator binding="#{bindings.ManagerId.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.ManagerId.format}"/>
+      </af:inputText>
+      <f:facet name="footer">
+        <af:commandButton text="Next" id="cb1" action="editHrData"/>
+      </f:facet>
+    </af:panelFormLayout>
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+  </af:panelHeader>
+</ui:composition>

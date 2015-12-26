@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:pageTemplate viewId="/oracle/templates/threeColumnTemplate.jspx"
+                         id="pt1">
+          <f:facet name="center"/>
+          <f:facet name="header"/>
+          <f:facet name="end"/>
+          <f:facet name="start">
+            <af:table value="#{bindings.DepartmentEOView1.collectionModel}"
+                      var="row" rows="#{bindings.DepartmentEOView1.rangeSize}"
+                      emptyText="#{bindings.DepartmentEOView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.DepartmentEOView1.rangeSize}"
+                      rowBandingInterval="0" id="t1">
+              <af:column sortProperty="#{bindings.DepartmentEOView1.hints.DepartmentId.name}"
+                         sortable="false"
+                         headerText="#{bindings.DepartmentEOView1.hints.DepartmentId.label}"
+                         id="c5">
+                <af:inputText value="#{row.bindings.DepartmentId.inputValue}"
+                              label="#{bindings.DepartmentEOView1.hints.DepartmentId.label}"
+                              required="#{bindings.DepartmentEOView1.hints.DepartmentId.mandatory}"
+                              columns="#{bindings.DepartmentEOView1.hints.DepartmentId.displayWidth}"
+                              maximumLength="#{bindings.DepartmentEOView1.hints.DepartmentId.precision}"
+                              shortDesc="#{bindings.DepartmentEOView1.hints.DepartmentId.tooltip}"
+                              id="it2">
+                  <f:validator binding="#{row.bindings.DepartmentId.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.DepartmentEOView1.hints.DepartmentId.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.DepartmentEOView1.hints.DepartmentName.name}"
+                         sortable="false"
+                         headerText="#{bindings.DepartmentEOView1.hints.DepartmentName.label}"
+                         id="c2">
+                <af:inputText value="#{row.bindings.DepartmentName.inputValue}"
+                              label="#{bindings.DepartmentEOView1.hints.DepartmentName.label}"
+                              required="#{bindings.DepartmentEOView1.hints.DepartmentName.mandatory}"
+                              columns="#{bindings.DepartmentEOView1.hints.DepartmentName.displayWidth}"
+                              maximumLength="#{bindings.DepartmentEOView1.hints.DepartmentName.precision}"
+                              shortDesc="#{bindings.DepartmentEOView1.hints.DepartmentName.tooltip}"
+                              id="it3">
+                  <f:validator binding="#{row.bindings.DepartmentName.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.DepartmentEOView1.hints.ManagerId.name}"
+                         sortable="false"
+                         headerText="#{bindings.DepartmentEOView1.hints.ManagerId.label}"
+                         id="c3">
+                <af:selectOneChoice value="#{row.bindings.ManagerId.inputValue}"
+                                    label="#{row.bindings.ManagerId.label}"
+                                    required="#{bindings.DepartmentEOView1.hints.ManagerId.mandatory}"
+                                    shortDesc="#{bindings.DepartmentEOView1.hints.ManagerId.tooltip}"
+                                    id="soc2">
+                  <f:selectItems value="#{row.bindings.ManagerId.items}"
+                                 id="si2"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.DepartmentEOView1.hints.LocationId.name}"
+                         sortable="false"
+                         headerText="#{bindings.DepartmentEOView1.hints.LocationId.label}"
+                         id="c1">
+                <af:selectOneChoice value="#{row.bindings.LocationId.inputValue}"
+                                    label="#{row.bindings.LocationId.label}"
+                                    required="#{bindings.DepartmentEOView1.hints.LocationId.mandatory}"
+                                    shortDesc="#{bindings.DepartmentEOView1.hints.LocationId.tooltip}"
+                                    id="soc1">
+                  <f:selectItems value="#{row.bindings.LocationId.items}"
+                                 id="si1"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.DepartmentEOView1.hints.Guid.name}"
+                         sortable="false"
+                         headerText="#{bindings.DepartmentEOView1.hints.Guid.label}"
+                         id="c4">
+                <af:inputText value="#{row.bindings.Guid.inputValue}"
+                              label="#{bindings.DepartmentEOView1.hints.Guid.label}"
+                              required="#{bindings.DepartmentEOView1.hints.Guid.mandatory}"
+                              columns="#{bindings.DepartmentEOView1.hints.Guid.displayWidth}"
+                              maximumLength="#{bindings.DepartmentEOView1.hints.Guid.precision}"
+                              shortDesc="#{bindings.DepartmentEOView1.hints.Guid.tooltip}"
+                              id="it1">
+                  <f:validator binding="#{row.bindings.Guid.validator}"/>
+                </af:inputText>
+              </af:column>
+            </af:table>
+          </f:facet>
+          <f:facet name="branding"/>
+          <f:facet name="copyright"/>
+          <f:facet name="status"/>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

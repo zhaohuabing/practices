@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="departments.jsf" id="d1" binding="#{backingBeanScope.backing_departments.d1}">
+        <af:messages id="m1" binding="#{backingBeanScope.backing_departments.m1}"/>
+        <af:form id="f1" binding="#{backingBeanScope.backing_departments.f1}">
+            <af:panelSplitter orientation="horizontal" splitterPosition="100" id="ps1"
+                              binding="#{backingBeanScope.backing_departments.ps1}">
+                <f:facet name="first"/>
+                <f:facet name="second">
+                    <af:panelGridLayout id="pgl3" binding="#{backingBeanScope.backing_departments.pgl3}">
+                        <af:gridRow marginTop="5px" height="auto" id="gr1"
+                                    binding="#{backingBeanScope.backing_departments.gr1}">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1"
+                                         binding="#{backingBeanScope.backing_departments.gc1}">
+                                <af:panelGroupLayout layout="vertical" id="pgl1"
+                                                     binding="#{backingBeanScope.backing_departments.pgl1}">
+                                    <af:panelHeader text="DepartmentEO" id="ph1"
+                                                    binding="#{backingBeanScope.backing_departments.ph1}">
+                                        <af:query id="qryId1" headerText="Search" disclosed="true"
+                                                  value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor}"
+                                                  model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                                  queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}"
+                                                  queryOperationListener="#{bindings.ImplicitViewCriteriaQuery.processQueryOperation}"
+                                                  resultComponentId="::resId1"
+                                                  binding="#{backingBeanScope.backing_departments.qryId1}"/>
+                                    </af:panelHeader>
+                                    <af:table value="#{bindings.DepartmentEOView1.collectionModel}" var="row"
+                                              rows="#{bindings.DepartmentEOView1.rangeSize}"
+                                              emptyText="#{bindings.DepartmentEOView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0" fetchSize="#{bindings.DepartmentEOView1.rangeSize}"
+                                              id="resId1" binding="#{backingBeanScope.backing_departments.resId1}">
+                                        <af:column headerText="#{bindings.DepartmentEOView1.hints.DepartmentId.label}"
+                                                   id="resId1c1">
+                                            <af:outputText value="#{row.DepartmentId}"
+                                                           shortDesc="#{bindings.DepartmentEOView1.hints.DepartmentId.tooltip}"
+                                                           id="ot3">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.DepartmentEOView1.hints.DepartmentId.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.DepartmentEOView1.hints.DepartmentName.label}"
+                                                   id="resId1c2">
+                                            <af:outputText value="#{row.DepartmentName}"
+                                                           shortDesc="#{bindings.DepartmentEOView1.hints.DepartmentName.tooltip}"
+                                                           id="ot4"/>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.DepartmentEOView1.hints.ManagerId.label}"
+                                                   id="resId1c3">
+                                            <af:selectOneChoice value="#{row.bindings.ManagerId.inputValue}"
+                                                                label="#{row.bindings.ManagerId.label}"
+                                                                required="#{bindings.DepartmentEOView1.hints.ManagerId.mandatory}"
+                                                                shortDesc="#{bindings.DepartmentEOView1.hints.ManagerId.tooltip}"
+                                                                readOnly="true" id="soc1">
+                                                <f:selectItems value="#{row.bindings.ManagerId.items}" id="si1"/>
+                                                <f:validator binding="#{row.bindings.ManagerId.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.DepartmentEOView1.hints.LocationId.label}"
+                                                   id="resId1c4">
+                                            <af:selectOneChoice value="#{row.bindings.LocationId.inputValue}"
+                                                                label="#{row.bindings.LocationId.label}"
+                                                                required="#{bindings.DepartmentEOView1.hints.LocationId.mandatory}"
+                                                                shortDesc="#{bindings.DepartmentEOView1.hints.LocationId.tooltip}"
+                                                                readOnly="true" id="soc2">
+                                                <f:selectItems value="#{row.bindings.LocationId.items}" id="si2"/>
+                                                <f:validator binding="#{row.bindings.LocationId.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.DepartmentEOView1.hints.Guid.label}"
+                                                   id="resId1c5">
+                                            <af:outputText value="#{row.Guid}"
+                                                           shortDesc="#{bindings.DepartmentEOView1.hints.Guid.tooltip}"
+                                                           id="ot5"/>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelGroupLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" id="gr2"
+                                    binding="#{backingBeanScope.backing_departments.gr2}"/>
+                        <af:gridRow marginTop="5px" height="auto" id="gr3"
+                                    binding="#{backingBeanScope.backing_departments.gr3}">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3"
+                                         binding="#{backingBeanScope.backing_departments.gc3}">
+                                <af:outputText value="Employee" id="ot1"
+                                               binding="#{backingBeanScope.backing_departments.ot1}"
+                                               inlineStyle="font-size:x-large;"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4"
+                                    binding="#{backingBeanScope.backing_departments.gr4}">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4"
+                                         binding="#{backingBeanScope.backing_departments.gc4}">
+                                <af:button text="button 1" id="b1"
+                                           binding="#{backingBeanScope.backing_departments.b1}" action="forwardtest"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                    <af:panelFormLayout id="pfl1" binding="#{backingBeanScope.backing_departments.pfl1}">
+                        <af:panelFormLayout id="pfl2" binding="#{backingBeanScope.backing_departments.pfl2}">
+                            <af:inputText value="#{bindings.EmployeeId.inputValue}"
+                                          label="#{bindings.EmployeeId.hints.label}"
+                                          required="#{bindings.EmployeeId.hints.mandatory}"
+                                          columns="#{bindings.EmployeeId.hints.displayWidth}"
+                                          maximumLength="#{bindings.EmployeeId.hints.precision}"
+                                          shortDesc="#{bindings.EmployeeId.hints.tooltip}" id="it1"
+                                          binding="#{backingBeanScope.backing_departments.it1}">
+                                <f:validator binding="#{bindings.EmployeeId.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.EmployeeId.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.FirstName.inputValue}"
+                                          label="#{bindings.FirstName.hints.label}"
+                                          required="#{bindings.FirstName.hints.mandatory}"
+                                          columns="#{bindings.FirstName.hints.displayWidth}"
+                                          maximumLength="#{bindings.FirstName.hints.precision}"
+                                          shortDesc="#{bindings.FirstName.hints.tooltip}" id="it2"
+                                          binding="#{backingBeanScope.backing_departments.it2}">
+                                <f:validator binding="#{bindings.FirstName.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.LastName.inputValue}"
+                                          label="#{bindings.LastName.hints.label}"
+                                          required="#{bindings.LastName.hints.mandatory}"
+                                          columns="#{bindings.LastName.hints.displayWidth}"
+                                          maximumLength="#{bindings.LastName.hints.precision}"
+                                          shortDesc="#{bindings.LastName.hints.tooltip}" id="it3"
+                                          binding="#{backingBeanScope.backing_departments.it3}">
+                                <f:validator binding="#{bindings.LastName.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.Email.inputValue}" label="#{bindings.Email.hints.label}"
+                                          required="#{bindings.Email.hints.mandatory}"
+                                          columns="#{bindings.Email.hints.displayWidth}"
+                                          maximumLength="#{bindings.Email.hints.precision}"
+                                          shortDesc="#{bindings.Email.hints.tooltip}" id="it4"
+                                          binding="#{backingBeanScope.backing_departments.it4}">
+                                <f:validator binding="#{bindings.Email.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.PhoneNumber.inputValue}"
+                                          label="#{bindings.PhoneNumber.hints.label}"
+                                          required="#{bindings.PhoneNumber.hints.mandatory}"
+                                          columns="#{bindings.PhoneNumber.hints.displayWidth}"
+                                          maximumLength="#{bindings.PhoneNumber.hints.precision}"
+                                          shortDesc="#{bindings.PhoneNumber.hints.tooltip}" id="it5"
+                                          binding="#{backingBeanScope.backing_departments.it5}">
+                                <f:validator binding="#{bindings.PhoneNumber.validator}"/>
+                            </af:inputText>
+                            <af:inputDate value="#{bindings.HireDate.inputValue}"
+                                          label="#{bindings.HireDate.hints.label}"
+                                          required="#{bindings.HireDate.hints.mandatory}"
+                                          columns="#{bindings.HireDate.hints.displayWidth}"
+                                          shortDesc="#{bindings.HireDate.hints.tooltip}" id="id1"
+                                          binding="#{backingBeanScope.backing_departments.id1}">
+                                <f:validator binding="#{bindings.HireDate.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.HireDate.format}"/>
+                            </af:inputDate>
+                            <af:inputText value="#{bindings.JobId.inputValue}" label="#{bindings.JobId.hints.label}"
+                                          required="#{bindings.JobId.hints.mandatory}"
+                                          columns="#{bindings.JobId.hints.displayWidth}"
+                                          maximumLength="#{bindings.JobId.hints.precision}"
+                                          shortDesc="#{bindings.JobId.hints.tooltip}" id="it6"
+                                          binding="#{backingBeanScope.backing_departments.it6}">
+                                <f:validator binding="#{bindings.JobId.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.Salary.inputValue}" label="#{bindings.Salary.hints.label}"
+                                          required="#{bindings.Salary.hints.mandatory}"
+                                          columns="#{bindings.Salary.hints.displayWidth}"
+                                          maximumLength="#{bindings.Salary.hints.precision}"
+                                          shortDesc="#{bindings.Salary.hints.tooltip}" id="it7"
+                                          binding="#{backingBeanScope.backing_departments.it7}">
+                                <f:validator binding="#{bindings.Salary.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.Salary.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.CommissionPct.inputValue}"
+                                          label="#{bindings.CommissionPct.hints.label}"
+                                          required="#{bindings.CommissionPct.hints.mandatory}"
+                                          columns="#{bindings.CommissionPct.hints.displayWidth}"
+                                          maximumLength="#{bindings.CommissionPct.hints.precision}"
+                                          shortDesc="#{bindings.CommissionPct.hints.tooltip}" id="it8"
+                                          binding="#{backingBeanScope.backing_departments.it8}">
+                                <f:validator binding="#{bindings.CommissionPct.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.CommissionPct.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.ManagerId1.inputValue}"
+                                          label="#{bindings.ManagerId1.hints.label}"
+                                          required="#{bindings.ManagerId1.hints.mandatory}"
+                                          columns="#{bindings.ManagerId1.hints.displayWidth}"
+                                          maximumLength="#{bindings.ManagerId1.hints.precision}"
+                                          shortDesc="#{bindings.ManagerId1.hints.tooltip}" id="it9"
+                                          binding="#{backingBeanScope.backing_departments.it9}">
+                                <f:validator binding="#{bindings.ManagerId1.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.ManagerId1.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.DepartmentId.inputValue}"
+                                          label="#{bindings.DepartmentId.hints.label}"
+                                          required="#{bindings.DepartmentId.hints.mandatory}"
+                                          columns="#{bindings.DepartmentId.hints.displayWidth}"
+                                          maximumLength="#{bindings.DepartmentId.hints.precision}"
+                                          shortDesc="#{bindings.DepartmentId.hints.tooltip}" id="it10"
+                                          binding="#{backingBeanScope.backing_departments.it10}">
+                                <f:validator binding="#{bindings.DepartmentId.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentId.format}"/>
+                            </af:inputText>
+                            <f:facet name="footer">
+                                <af:panelGroupLayout layout="vertical" id="pgl2"
+                                                     binding="#{backingBeanScope.backing_departments.pgl2}">
+                                    <af:panelGroupLayout layout="horizontal" id="pgl4"
+                                                         binding="#{backingBeanScope.backing_departments.pgl4}">
+                                        <af:button text="First"
+                                                   disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b2"
+                                                   binding="#{backingBeanScope.backing_departments.b2}"
+                                                   action="#{backingBeanScope.backing_departments.b2_action}"/>
+                                        <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                                                   disabled="#{!bindings.Previous.enabled}" partialSubmit="true"
+                                                   id="b3" binding="#{backingBeanScope.backing_departments.b3}"/>
+                                        <af:button actionListener="#{bindings.Next.execute}" text="Next"
+                                                   disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b4"
+                                                   binding="#{backingBeanScope.backing_departments.b4}"/>
+                                        <af:button actionListener="#{bindings.Last.execute}" text="Last"
+                                                   disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b5"
+                                                   binding="#{backingBeanScope.backing_departments.b5}"/>
+                                    </af:panelGroupLayout>
+                                    <af:button text="Submit" id="b6"
+                                               binding="#{backingBeanScope.backing_departments.b6}"
+                                               action="#{backingBeanScope.backing_departments.b6_action}"/>
+                                </af:panelGroupLayout>
+                            </f:facet>
+                        </af:panelFormLayout>
+                        <f:facet name="footer">
+                            <af:button text="setDepartmentName"
+                                       disabled="#{!bindings.setDepartmentName.enabled}" id="b7"
+                                       binding="#{backingBeanScope.backing_departments.b7}"
+                                       action="#{backingBeanScope.backing_departments.b7_action}"/>
+                        </f:facet>
+                    </af:panelFormLayout>
+                </f:facet>
+            </af:panelSplitter>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_departments-->
+</f:view>

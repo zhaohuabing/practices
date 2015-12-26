@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="browse-employees-btf">
+    <default-activity>SearchUsers</default-activity>
+    <managed-bean id="__5">
+      <managed-bean-name>EmployeeSearchQueryListener</managed-bean-name>
+      <managed-bean-class>adf.sample.managed.bean.EmployeeSearchQueryListener</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <view id="SearchUsers">
+      <page>/searchEmployees/SearchEmployees.jsff</page>
+      <train-stop>
+        <display-name>Employee Search</display-name>
+      </train-stop>
+    </view>
+    <task-flow-call id="edit-employees-flow-btfsdc">
+      <task-flow-reference>
+        <document>/WEB-INF/edit-employees-flow-btfsdc.xml</document>
+        <id>edit-employees-flow-btfsdc</id>
+      </task-flow-reference>
+      <train-stop>
+        <display-name>Employee Edit</display-name>
+        <outcome>edit</outcome>
+        <skip>#{pageFlowScope.skipEditEmployees == null? true : pageFlowScope.skipEditEmployees}</skip>
+      </train-stop>
+    </task-flow-call>
+    <train/>
+    <control-flow-rule id="__1">
+      <from-activity-id>SearchUsers</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>edit</from-outcome>
+        <to-activity-id>edit-employees-flow-btfsdc</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>edit-employees-flow-btfsdc</from-activity-id>
+      <control-flow-case id="__4">
+        <to-activity-id>SearchUsers</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

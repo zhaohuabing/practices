@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.2.59.88" id="DataBindings"
+             SeparateXMLFiles="false" Package="demo.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/search.jsff" usageId="demo_view_searchPageDef"/>
+    <page path="/update.jsff" usageId="demo_view_updatePageDef"/>
+    <page path="/master.jsf" usageId="demo_view_masterPageDef"/>
+    <page path="/WEB-INF/security-flow.xml#security-flow@Commit"
+          usageId="demo_view_security_flow_security_flow_CommitPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="demo_view_searchPageDef" path="demo.view.pageDefs.searchPageDef"/>
+    <page id="demo_view_updatePageDef" path="demo.view.pageDefs.updatePageDef"/>
+    <page id="demo_view_masterPageDef" path="demo.view.pageDefs.masterPageDef"/>
+    <page id="demo_view_security_flow_security_flow_CommitPageDef"
+          path="demo.view.pageDefs.security_flow_security_flow_CommitPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleDataControl" Package="demo.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

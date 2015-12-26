@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:outputLabel value="#{pageFlowScope.username}" id="labelUserName"/>
+  <af:inputText label="Password" id="it1" binding="#{backing_login.password}"/>
+  <af:button text="login" id="btnLogin" action="login"/>
+</ui:composition>

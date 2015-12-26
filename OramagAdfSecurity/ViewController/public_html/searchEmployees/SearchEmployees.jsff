@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelStretchLayout topHeight="auto" id="psl1">
+        <f:facet name="top">
+            <af:panelGroupLayout layout="vertical" id="pgl1">
+                <af:panelHeader text="Employees" id="ph1">
+                    <af:query id="qryId1" headerText="Search" disclosed="true"
+                              value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor}"
+                              model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                              queryOperationListener="#{bindings.ImplicitViewCriteriaQuery.processQueryOperation}"
+                              queryListener="#{EmployeeSearchQueryListener.queryListener}"/>
+                    <f:facet name="toolbar">
+                        <af:toolbar id="t3">
+                            <af:panelGroupLayout id="pgl2" layout="horizontal" partialTriggers="qryId1">
+                                <af:train value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                                          id="t4" binding="#{EmployeeSearchQueryListener.trainComponent}"
+                                          rendered="#{securityContext.taskflowViewable['/WEB-INF/edit-employees-flow-btfsdc.xml#edit-employees-flow-btfsdc']}"/>
+                            </af:panelGroupLayout>
+                        </af:toolbar>
+                    </f:facet>
+                </af:panelHeader>
+            </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="center">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                    <af:toolbar id="t2">
+                        <af:commandToolbarButton text="Edit Selected Employee" id="ctb1" action="edit"
+                                                 disabled="#{!(bindings.allEmployeesIterator.estimatedRowCount > 0) or (!securityContext.taskflowViewable['/WEB-INF/edit-employees-flow-btfsdc.xml#edit-employees-flow-btfsdc'])}"
+                                                 partialTriggers="::qryId1"/>
+                    </af:toolbar>
+                </f:facet>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.allEmployees.collectionModel}" var="row"
+                          rows="#{bindings.allEmployees.rangeSize}"
+                          emptyText="#{bindings.allEmployees.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          fetchSize="#{bindings.allEmployees.rangeSize}" rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.allEmployees.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.allEmployees.collectionModel.makeCurrent}" rowSelection="single"
+                          id="t1">
+                    <af:column sortProperty="#{bindings.allEmployees.hints.DepartmentId.name}" sortable="false"
+                               headerText="#{bindings.allEmployees.hints.DepartmentId.label}" id="c1">
+                        <af:selectOneChoice value="#{row.bindings.DepartmentId.inputValue}"
+                                            label="#{row.bindings.DepartmentId.label}"
+                                            required="#{bindings.allEmployees.hints.DepartmentId.mandatory}"
+                                            shortDesc="#{bindings.allEmployees.hints.DepartmentId.tooltip}"
+                                            readOnly="true" id="soc1">
+                            <f:selectItems value="#{row.bindings.DepartmentId.items}" id="si1"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.allEmployees.hints.EmployeeId.name}" sortable="false"
+                               headerText="#{bindings.allEmployees.hints.EmployeeId.label}" id="c2">
+                        <af:outputText value="#{row.EmployeeId}" id="ot1">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.allEmployees.hints.EmployeeId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.allEmployees.hints.FirstName.name}" sortable="false"
+                               headerText="#{bindings.allEmployees.hints.FirstName.label}" id="c3">
+                        <af:outputText value="#{row.FirstName}" id="ot2"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.allEmployees.hints.LastName.name}" sortable="false"
+                               headerText="#{bindings.allEmployees.hints.LastName.label}" id="c4">
+                        <af:outputText value="#{row.LastName}" id="ot3"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.allEmployees.hints.Email.name}" sortable="false"
+                               headerText="#{bindings.allEmployees.hints.Email.label}" id="c5">
+                        <af:outputText value="#{row.Email}" id="ot4"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.allEmployees.hints.ManagerId.name}" sortable="false"
+                               headerText="#{bindings.allEmployees.hints.ManagerId.label}" id="c6">
+                        <af:outputText value="#{row.ManagerId}" id="ot5">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.allEmployees.hints.ManagerId.format}"/>
+                        </af:outputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+            <!-- id="af_one_column_header_stretched"  -->
+        </f:facet>
+    </af:panelStretchLayout>
+</ui:composition>

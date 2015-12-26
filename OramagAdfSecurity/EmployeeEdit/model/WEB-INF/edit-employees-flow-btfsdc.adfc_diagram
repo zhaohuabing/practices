@@ -1,0 +1,205 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1">
+      <property
+         name="linkStyle">Orthogonal</property>
+   </OverallProperties>
+   <View
+      id="View2">
+      <property
+         name="activityId">EditPersonData</property>
+      <property
+         name="start">true</property>
+      <property
+         name="page">/EditPersonData.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>EditPersonData&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="trainStop">true</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">185.24707</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">246.0</property>
+   </View>
+   <View
+      id="View3">
+      <property
+         name="activityId">EditJobData</property>
+      <property
+         name="page">/EditJobData.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>EditJobData&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="trainStop">true</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">184.19531</property>
+      <property
+         name="x">524.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <View
+      id="View4">
+      <property
+         name="activityId">EditHrData</property>
+      <property
+         name="page">/EditHrData.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>EditHrData&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="trainStop">true</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">184.29883</property>
+      <property
+         name="x">838.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="WildcardControlFlowRule8"
+      to="View3">
+      <property
+         name="fromOutcome">editJob</property>
+      <property
+         name="sdm:polyPoints">B50,524.0,44.948242,524.0,129.84473,T50</property>
+   </ControlFlowCase>
+   <TrainFlow
+      islink="true"
+      id="TrainFlow6"
+      from="View2"
+      to="View3">
+      <property
+         name="sdm:polyPoints">R54,385.0,188.39648,385.0,183.84473,L50</property>
+   </TrainFlow>
+   <TrainFlow
+      islink="true"
+      id="TrainFlow7"
+      from="View3"
+      to="View4">
+      <property
+         name="sdm:polyPoints">R50,681.0,183.84473,681.0,183.94824,L50</property>
+   </TrainFlow>
+   <WildcardControlFlowRule
+      id="WildcardControlFlowRule8">
+      <property
+         name="activityId">*</property>
+      <property
+         name="y">2.5976562</property>
+      <property
+         name="x">524.0</property>
+   </WildcardControlFlowRule>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase9"
+      from="WildcardControlFlowRule8"
+      to="View2">
+      <property
+         name="fromOutcome">editPerson</property>
+      <property
+         name="sdm:polyPoints">L50,387.5,2.7470703,387.5,181.39648,R46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase10"
+      from="WildcardControlFlowRule8"
+      to="View4">
+      <property
+         name="fromOutcome">editHrData</property>
+      <property
+         name="sdm:polyPoints">R50,838.0,2.7470703,T50</property>
+   </ControlFlowCase>
+   <TaskFlowReturn
+      id="TaskFlowReturn11">
+      <property
+         name="activityId">UndoChanges</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>UndoChanges&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  UndoChanges&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">319.24707</property>
+      <property
+         name="x">261.0</property>
+   </TaskFlowReturn>
+   <TaskFlowReturn
+      id="TaskFlowReturn12">
+      <property
+         name="activityId">Commit</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Commit&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  Commit&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">483.1953</property>
+      <property
+         name="x">841.0</property>
+   </TaskFlowReturn>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase13"
+      from="View4"
+      to="TaskFlowReturn11">
+      <property
+         name="fromOutcome">cancel</property>
+      <property
+         name="sdm:polyPoints">B44,834.5,318.89648,R50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase14"
+      from="View4"
+      to="TaskFlowReturn12">
+      <property
+         name="fromOutcome">submit</property>
+      <property
+         name="sdm:polyPoints">B56,841.5,333.39648,841.0,333.39648,T50</property>
+   </ControlFlowCase>
+   <note
+      id="note15">
+      <property
+         name="sdm:nodeHeight">80.0</property>
+      <property
+         name="label">
+         <![CDATA[<html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top: 0">
+      <font face="Dialog" color="#000000" size="3">Shared DC Task Flow that 
+      participates in existing </font>
+    </p>
+    <p style="margin-top: 0">
+      <font color="#000000" face="Dialog" size="3">transaction or creates a 
+      new. Data is either committed </font>
+    </p>
+    <p style="margin-top: 0">
+      <font color="#000000" face="Dialog" size="3">or rolled back. </font>
+    </p>
+  </body>
+</html>
+]]>
+      </property>
+      <property
+         name="y">1.0</property>
+      <property
+         name="sdm:nodeWidth">326.0</property>
+      <property
+         name="x">143.0</property>
+   </note>
+</SDM>

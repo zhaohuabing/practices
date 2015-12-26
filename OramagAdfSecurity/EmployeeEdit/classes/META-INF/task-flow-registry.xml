@@ -1,0 +1,4 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="WEB-INF/edit-employees-flow-btfsdc.xml" id="edit-employees-flow-btfsdc" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="true" page-type="facelets"/>
+</task-flow-registry>

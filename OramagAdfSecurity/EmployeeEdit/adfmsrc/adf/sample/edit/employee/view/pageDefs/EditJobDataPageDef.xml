@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.60.80" id="EditJobDataPageDef"
+                Package="adf.sample.edit.employee.view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="allEmployees" RangeSize="25" DataControl="AppModuleDataControl" id="allEmployeesIterator"/>
+  </executables>
+  <bindings>
+    <listOfValues StaticList="false" IterBinding="allEmployeesIterator" Uses="LOV_JobId" id="JobId"/>
+    <list IterBinding="allEmployeesIterator" StaticList="false" Uses="LOV_DepartmentId" id="DepartmentId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="allEmployeesIterator" id="PhoneNumber">
+      <AttrNames>
+        <Item Value="PhoneNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="allEmployeesIterator" id="ManagerId">
+      <AttrNames>
+        <Item Value="ManagerId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

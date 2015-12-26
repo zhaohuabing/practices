@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.60.80" id="SalaryOverviewPageDef"
+                Package="salaryOverview">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="reportees" RangeSize="-1" DataControl="AppModuleDataControl" id="reporteesIterator"
+              ChangeEventPolicy="none"/>
+    <iterator Binds="allDepartments" RangeSize="-1" DataControl="AppModuleDataControl" id="allDepartmentsIterator"/>
+    <iterator Binds="employeesInDepartment" RangeSize="25" DataControl="AppModuleDataControl"
+              id="employeesInDepartmentIterator" ChangeEventPolicy="none"/>
+  </executables>
+  <bindings>
+    <graph IterBinding="reporteesIterator" id="reportees" xmlns="http://xmlns.oracle.com/adfm/dvt"
+           type="BAR_VERT_CLUST">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <data>
+            <item value="Salary"/>
+          </data>
+        </series>
+        <groups>
+          <item value="FirstName"/>
+          <item value="LastName"/>
+        </groups>
+      </graphDataMap>
+    </graph>
+    <graph IterBinding="allDepartmentsIterator" id="allDepartments" xmlns="http://xmlns.oracle.com/adfm/dvt"
+           type="BAR_VERT_CLUST">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <data>
+            <item value="SalarySum"/>
+          </data>
+        </series>
+        <groups>
+          <item value="DepartmentName"/>
+        </groups>
+      </graphDataMap>
+    </graph>
+    <tree IterBinding="employeesInDepartmentIterator" id="employeesInDepartment">
+      <nodeDefinition DefName="adf.sample.model.views.EmployeesView" Name="employeesInDepartment0">
+        <AttrNames>
+          <Item Value="EmployeeId"/>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+          <Item Value="Email"/>
+          <Item Value="HireDate"/>
+          <Item Value="Salary"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="allDepartmentsIterator" id="DepartmentName">
+      <AttrNames>
+        <Item Value="DepartmentName"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
