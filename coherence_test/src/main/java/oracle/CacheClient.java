@@ -12,5 +12,16 @@ public class CacheClient {
 		System.out.println("------retrieve Object from cache------");
 		String value = (String) cache.get("testKey");
 		System.out.println(value);
+		
+		System.out.println("------Wait for 2 minutes------");
+		try {
+			Thread.sleep(2*60*1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("------retrieve Object from cache------");
+		value = (String) cache.get("testKey");
+		System.out.println(value);
 	}
 }

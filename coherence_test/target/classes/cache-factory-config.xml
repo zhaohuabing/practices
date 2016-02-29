@@ -9,7 +9,7 @@
             <scheme-name>distributed</scheme-name>
             <init-params>
                 <init-param>
-                    <param-name>expiry-time</param-name>
+                    <param-name>expiry-delay</param-name>
                     <param-value>1m</param-value>
                 </init-param>
             </init-params>
