@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="GBK" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DeptMgrFkLink"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  EntityAssociation="com.oracle.huabing.model.entity.asso.DeptMgrFkAssoc">
+  <ViewLinkDefEnd
+    Name="EmployeeEOView"
+    Cardinality="1"
+    Source="true"
+    Owner="com.oracle.huabing.model.view.EmployeeEOView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="EmployeeEOView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.oracle.huabing.model.view.EmployeeEOView.EmployeeId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="DepartmentEOView"
+    Cardinality="-1"
+    Owner="com.oracle.huabing.model.view.DepartmentEOView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="DepartmentEOView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.oracle.huabing.model.view.DepartmentEOView.ManagerId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

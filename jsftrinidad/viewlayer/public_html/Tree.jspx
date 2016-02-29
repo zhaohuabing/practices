@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:trh="http://myfaces.apache.org/trinidad/html"
+          xmlns:afh="http://xmlns.oracle.com/adf/faces/html" xmlns:af="http://xmlns.oracle.com/adf/faces"
+          xmlns:tr="http://myfaces.apache.org/trinidad">
+  <jsp:output omit-xml-declaration="true" doctype-root-element="HTML"
+              doctype-system="http://www.w3.org/TR/html4/loose.dtd"
+              doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN"/>
+  <jsp:directive.page contentType="text/html;charset=windows-1252"/>
+  <f:view>
+    <trh:html>
+      <trh:head title="Tree">
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"/>
+      </trh:head>
+      <trh:body>
+        <h:form>
+          <tr:panelPage>
+            <f:facet name="navigation1">
+              <tr:navigationPane hint="tabs">
+                <tr:commandNavigationItem text="Main" selected="false" action="main_page"/>
+                <tr:commandNavigationItem text="Table" action="table_demo"/>
+                <tr:commandNavigationItem text="Tree" selected="true"/>
+              </tr:navigationPane>
+            </f:facet>
+            <f:facet name="navigationGlobal"/>
+            <f:facet name="branding">
+              <tr:outputText value="Tree Demo"/>
+            </f:facet>
+            <!--TODO: Migrator from ADF Faces 10.1.3 to Trinidad removed the following node and its contents since it does not exist in Trinidad anymore
+<f:facet name="brandingApp" />
+-->
+            <f:facet name="appCopyright">
+              <f:verbatim>                 <p>
+                  Oracle Corporation
+                </p>               </f:verbatim>
+            </f:facet>
+            <f:facet name="appPrivacy"/>
+            <f:facet name="appAbout"/>
+          </tr:panelPage>
+        </h:form>
+      </trh:body>
+    </trh:html>
+  </f:view>
+</jsp:root>

@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Home.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/oracle/templates/threeColumnTemplate.jspx" id="pt1">
+                <f:facet name="center">
+                    <af:panelStretchLayout id="psl1">
+                        <f:facet name="bottom"/>
+                        <f:facet name="center">
+                            <af:panelTabbed id="pt2">
+                                <af:showDetailItem text="Home" id="sdi1" stretchChildren="first">
+                                    <af:panelStretchLayout id="psl2">
+                                        <f:facet name="bottom"/>
+                                        <f:facet name="center">
+                                            <af:panelHeader id="pb1" type="stretch"
+                                                            inlineStyle="text-align:center;"
+                                                            text="Welcome #{bindings.FirstName.inputValue} #{bindings.LastName.inputValue}">
+                                                <af:switcher defaultFacet="unauthenticated"
+                                                             facetName="#{securityContext.authenticated == true? 'authenticated' : 'unauthenticated'}"
+                                                             id="s3">
+                                                    <f:facet name="authenticated">
+                                                        <af:image source="/image/access.jpg" id="i1"/>
+                                                    </f:facet>
+                                                    <f:facet name="unauthenticated">
+                                                        <af:image source="/image/no-access.jpg" id="i2"/>
+                                                    </f:facet>
+                                                </af:switcher>
+                                            </af:panelHeader>
+                                        </f:facet>
+                                        <f:facet name="start"/>
+                                        <f:facet name="end"/>
+                                        <f:facet name="top"/>
+                                    </af:panelStretchLayout>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="User Profile" id="sdi2" stretchChildren="first"
+                                                   disabled="#{!securityContext.authenticated}">
+                                    <af:region value="#{bindings.userprofilebtf1.regionModel}" id="r1"
+                                               showDisclosure="false"/>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="Management Salary Overview" id="sdi3" stretchChildren="first"
+                                                   disabled="#{!securityContext.taskflowViewable['/WEB-INF/regions/salaries-overview-btf.xml#salaries-overview-btf']}">
+                                    <af:region value="#{bindings.salariesoverviewbtf1.regionModel}" id="r2"/>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="Employee Search" id="sdi4" stretchChildren="first"
+                                                   disabled="#{!securityContext.taskflowViewable['/WEB-INF/regions/browse-employees-btf.xml#browse-employees-btf']}">
+                                    <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r3"/>
+                                </af:showDetailItem>
+                                <af:showDetailItem text="HR Managers Only" id="sdi5"
+                                                   rendered='#{securityContext.userGrantedResource[&apos;resourceName=ManagersOnly;resourceType=PanelTabProtection;action=view&apos;]}'
+                                                   disabled='#{!securityContext.userGrantedResource[&apos;resourceName=ManagersOnly;resourceType=PanelTabProtection;action=open&apos;]}'
+                                                   stretchChildren="first">
+                                    <af:panelStretchLayout id="psl3">
+                                        <f:facet name="bottom"/>
+                                        <f:facet name="center">
+                                            <af:panelHeader text="All you need to know about ADF !" id="ph1" type="stretch"
+                                                            inlineStyle="text-align:center;">
+                                                <af:image source="/image/manager-slide.jpg" id="i3"/>
+                                            </af:panelHeader>
+                                        </f:facet>
+                                        <f:facet name="start"/>
+                                        <f:facet name="end"/>
+                                        <f:facet name="top"/>
+                                    </af:panelStretchLayout>
+                                </af:showDetailItem>
+                            </af:panelTabbed>
+                        </f:facet>
+                        <f:facet name="start"/>
+                        <f:facet name="end"/>
+                        <f:facet name="top">
+                            <af:panelGroupLayout id="pgl1" layout="horizontal" styleClass=".AFStretchWidth">
+                                <af:commandImageLink text="Logout" id="commandImageLink1" icon="/image/glbl_logout.gif"
+                                                     rendered="#{securityContext.authenticated}" partialSubmit="true"
+                                                     immediate="false" action="#{login.logout}"/>
+                                <af:commandImageLink text="Login" id="cil1" icon="/image/glbl_login_msg.gif"
+                                                     rendered="#{!securityContext.authenticated}">
+                                    <af:showPopupBehavior popupId="p1" triggerType="action" align="startAfter"
+                                                          alignId="cil1"/>
+                                </af:commandImageLink>
+                                <af:popup id="p1" binding="#{HomeBean.popupP1}">
+                                    <af:dialog id="d2" title="Please Login" type="okCancel" closeIconVisible="false"
+                                               modal="true" stretchChildren="none"
+                                               dialogListener="#{login.onLoginAction}">
+                                        <af:panelFormLayout id="pfl5">
+                                            <af:inputText label="Username" id="it34" columns="20"
+                                                          value="#{login.username}"/>
+                                            <af:inputText label="Password" id="it35" secret="true" columns="20"
+                                                          value="#{login.password}"/>
+                                            <af:message id="m2" for="it35" messageType="error"/>
+                                        </af:panelFormLayout>
+                                    </af:dialog>
+                                </af:popup>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelStretchLayout>
+                </f:facet>
+                <f:facet name="header">
+                    <af:outputText value="ADF Security in Action" id="ot1"/>
+                </f:facet>
+                <f:facet name="branding"/>
+                <f:facet name="copyright"/>
+                <f:facet name="status"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

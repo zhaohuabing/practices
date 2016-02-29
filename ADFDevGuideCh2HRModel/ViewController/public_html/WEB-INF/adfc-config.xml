@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="GBK" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="departments">
+    <page>/departments.jsf</page>
+  </view>
+  <view id="employee">
+    <page>/employee.jsf</page>
+  </view>
+  <method-call id="ExecuteWithParams">
+    <method>#{bindings.ExecuteWithParams.execute}</method>
+    <outcome>
+      <fixed-outcome>ExecuteWithParams</fixed-outcome>
+    </outcome>
+  </method-call>
+  <control-flow-rule id="__5">
+    <from-activity-id>departments</from-activity-id>
+    <control-flow-case id="__6">
+      <from-outcome>forwardtest</from-outcome>
+      <to-activity-id>employee</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__7">
+    <from-activity-id>*</from-activity-id>
+    <control-flow-case id="__8">
+      <from-outcome>home</from-outcome>
+      <to-activity-id>departments</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__1">
+    <managed-bean-name>backing_department</managed-bean-name>
+    <managed-bean-class>view.backing.Department</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1department.jsf-->
+  </managed-bean>
+  <managed-bean id="__2">
+    <managed-bean-name>backing_departments</managed-bean-name>
+    <managed-bean-class>view.backing.Departments</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1departments.jsf-->
+  </managed-bean>
+  <managed-bean id="__3">
+    <managed-bean-name>backing_employee</managed-bean-name>
+    <managed-bean-class>view.backing.Employee</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1employee.jsf-->
+  </managed-bean>
+  <managed-bean id="__4">
+    <managed-bean-name>TestManagerBean</managed-bean-name>
+    <managed-bean-class>com.oracle.huabing.model.view.TestManagerBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

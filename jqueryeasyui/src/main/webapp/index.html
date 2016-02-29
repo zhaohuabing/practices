@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Client Side Pagination in DataGrid - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="js/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="js/easyui/themes/icon.css">
+	<script type="text/javascript" src="js/easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="js/easyui/jquery.easyui.min.js"></script>
+</head>
+<body>
+	<h2>Client Side Pagination in DataGrid</h2>
+	<p>This sample shows how to implement client side pagination in DataGrid.</p>
+	<div style="margin:20px 0;"></div>
+	
+	<table id="tt" class="easyui-datagrid" style="width:600px;height:250px"
+			url="productsdata.json"
+			title="Load Data" iconCls="icon-save"
+			rownumbers="true" pagination="true">
+		<thead>
+			<tr>
+				<th field="itemid" width="80">Item ID</th>
+				<th field="productid" width="80">Product ID</th>
+				<th field="listprice" width="80" align="right">List Price</th>
+				<th field="unitcost" width="80" align="right">Unit Cost</th>
+				<th field="attr1" width="150">Attribute</th>
+				<th field="status" width="60" align="center">Stauts</th>
+			</tr>
+		</thead>
+	</table>
+</body>
+</html>

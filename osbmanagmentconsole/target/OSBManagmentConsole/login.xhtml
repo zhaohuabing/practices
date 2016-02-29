@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<f:loadBundle basename="i18n.messages" var="msgs" />
+<style>
+.Center-Container {
+	position: relative;
+}
+
+.Absolute-Center {
+	width: 360px;
+	height: 350px;
+	overflow: auto;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	border-width: 1px;
+}
+</style>
+<h:head></h:head>
+<h:body>
+
+	<div styleClass="Center-Container">
+
+		<p:panel id="panel" styleClass="Absolute-Center">
+			<h:form>
+
+				<p:outputLabel value="#{msgs['login.welcome']}" />
+				<img src="images/chinacustoms.gif"	style="width: 15%; height: 15%" />
+				
+				<p:messages id="msgs" style="width:100%" />
+				
+				<p:outputLabel value="#{msgs['login.username']}" />
+				<p:inputText id="name" value="#{user.username}" required="true"
+					requiredMessage="#{msgs['login.nousername']}" label="name"
+					style="width:100%;height:20px;margin:0px 0px 15px 0px;padding:0px 0px 0px 0px " />
+					
+				<p:watermark value="#{msgs['login.username']}" for="name" />
+				<p:outputLabel value="#{msgs['login.password']}" />
+				<p:password id="password" value="#{user.password}" label="password"
+					required="true" requiredMessage="#{msgs['login.nopassword']}"
+					style="width:100%;margin:0px 0px 0px 0px;padding:0px 0px 0px 0px " />
+				<p:watermark value="#{msgs['login.password']}" for="password" />
+				
+				<p:commandButton value="#{msgs['login.login']}" update="panel"
+					actionListener="#{user.login}" ajax="false"
+					style="width:100%;margin:15px 0px 0px 0px;padding:0px 0px 0px 0px " />
+			</h:form>
+		</p:panel>
+
+	</div>
+
+
+</h:body>
+</html>

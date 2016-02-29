@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.2.60.80" id="DataBindings"
+             SeparateXMLFiles="false" Package="adf.sample.edit.employee.view" ClientType="Generic">
+  <pageMap>
+    <page path="/EditPersonData.jsff" usageId="adf_sample_edit_employee_view_EditPersonDataPageDef"/>
+    <page path="/EditJobData.jsff" usageId="adf_sample_edit_employee_view_EditJobDataPageDef"/>
+    <page path="/EditHrData.jsff" usageId="adf_sample_edit_employee_view_EditHrDataPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="adf_sample_edit_employee_view_EditPersonDataPageDef"
+          path="adf.sample.edit.employee.view.pageDefs.EditPersonDataPageDef"/>
+    <page id="adf_sample_edit_employee_view_EditJobDataPageDef"
+          path="adf.sample.edit.employee.view.pageDefs.EditJobDataPageDef"/>
+    <page id="adf_sample_edit_employee_view_EditHrDataPageDef"
+          path="adf.sample.edit.employee.view.pageDefs.EditHrDataPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleDataControl" Package="adf.sample.model.services"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

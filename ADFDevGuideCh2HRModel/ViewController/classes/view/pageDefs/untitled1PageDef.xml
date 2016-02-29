@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="untitled1PageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DepartmentEOView1" RangeSize="25"
+              DataControl="HRServiceAppModuleDataControl"
+              id="DepartmentEOView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DepartmentEOView1Iterator" id="DepartmentEOView1">
+      <nodeDefinition DefName="com.oracle.huabing.model.view.DepartmentEOView"
+                      Name="DepartmentEOView10">
+        <AttrNames>
+          <Item Value="DepartmentId"/>
+          <Item Value="DepartmentName"/>
+          <Item Value="ManagerId"/>
+          <Item Value="LocationId"/>
+          <Item Value="Guid"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

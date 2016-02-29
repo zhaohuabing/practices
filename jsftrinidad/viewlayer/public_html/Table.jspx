@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:trh="http://myfaces.apache.org/trinidad/html"
+          xmlns:afh="http://xmlns.oracle.com/adf/faces/html" xmlns:af="http://xmlns.oracle.com/adf/faces"
+          xmlns:tr="http://myfaces.apache.org/trinidad">
+  <jsp:output omit-xml-declaration="true" doctype-root-element="HTML"
+              doctype-system="http://www.w3.org/TR/html4/loose.dtd"
+              doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN"/>
+  <jsp:directive.page contentType="text/html;charset=windows-1252"/>
+  <f:view>
+    <trh:html>
+      <trh:head title="Tables">
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"/>
+      </trh:head>
+      <trh:body>
+        <tr:form>
+          <tr:panelPage>
+            <f:facet name="navigation1">
+              <tr:navigationPane hint="tabs">
+                <tr:commandNavigationItem text="Main" selected="false" action="main_page"/>
+                <tr:commandNavigationItem text="Table" selected="true"/>
+                <tr:commandNavigationItem text="Tree" action="tree_demo"/>
+              </tr:navigationPane>
+            </f:facet>
+            <f:facet name="navigationGlobal"/>
+            <f:facet name="branding">
+              <tr:outputText value="Edit Customer"/>
+            </f:facet>
+            <!--TODO: Migrator from ADF Faces 10.1.3 to Trinidad removed the following node and its contents since it does not exist in Trinidad anymore
+<f:facet name="brandingApp" />
+-->
+            <f:facet name="appCopyright">
+              <f:verbatim>                 <p>
+                  Oracle Corporation
+                </p>               </f:verbatim>
+            </f:facet>
+            <f:facet name="appPrivacy"/>
+            <f:facet name="appAbout"/>
+            <tr:panelTabbed>
+              <tr:showDetailItem text="Single Row Select" disclosed="true"/>
+              <tr:showDetailItem text="Multi Row Select">
+                <!--TODO: Migrator from ADF Faces 10.1.3 to Trinidad removed the following attribute from the node below since it does not exist in Trinidad anymore
+banding="row"-->
+                <!--TODO: Migrator from ADF Faces 10.1.3 to Trinidad removed the following attribute from the node below since it does not exist in Trinidad anymore
+bandingInterval="1"-->
+                <tr:table emptyText="No items were found" value="#{multiselectionhandler.tableModel}" var="row" rows="5"
+                          binding="#{multiselectionhandler.table}" id="table2" rowSelection="multiple">
+                  <!--TODO: Migrator from ADF Faces 10.1.3 to Trinidad removed the following attribute from the node below since it does not exist in Trinidad anymore
+formatType="icon"-->
+                  <tr:column sortProperty="fullName" sortable="true" headerText="Full Name">
+                    <tr:outputText value="#{row.fullName}" rendered="#{!row.selected}"/>
+                    <tr:inputText value="#{row.fullName}" rendered="#{row.selected}"/>
+                  </tr:column>
+                  <!--TODO: Migrator from ADF Faces 10.1.3 to Trinidad removed the following attribute from the node below since it does not exist in Trinidad anymore
+formatType="icon"-->
+                  <tr:column sortProperty="address" sortable="true" headerText="Address">
+                    <tr:outputText value="#{row.address}" rendered="#{!row.selected}"/>
+                    <tr:inputText value="#{row.address}" rendered="#{row.selected}"/>
+                  </tr:column>
+                  <!--TODO: Migrator from ADF Faces 10.1.3 to Trinidad removed the following attribute from the node below since it does not exist in Trinidad anymore
+formatType="text"-->
+                  <tr:column sortProperty="phone" sortable="true" headerText="Phone">
+                    <tr:outputText value="#{row.phone}" rendered="#{!row.selected}"/>
+                    <tr:inputText value="#{row.phone}" rendered="#{row.selected}"/>
+                  </tr:column>
+                  <!--TODO: Migrator from ADF Faces 10.1.3 to Trinidad removed the following attribute from the node below since it does not exist in Trinidad anymore
+formatType="icon"-->
+                  <tr:column sortProperty="email" sortable="true" headerText="Email">
+                    <tr:outputText value="#{row.email}" rendered="#{!row.selected}"/>
+                    <tr:inputText value="#{row.email}" rendered="#{row.selected}"/>
+                  </tr:column>
+                  <!--TODO: Migrator from ADF Faces 10.1.3 to Trinidad removed the following attribute from the node below since it does not exist in Trinidad anymore
+formatType="text"-->
+                  <tr:column sortProperty="company" sortable="true" headerText="Company">
+                    <tr:outputText value="#{row.company}" rendered="#{!row.selected}"/>
+                    <tr:inputText value="#{row.company}" rendered="#{row.selected}"/>
+                  </tr:column>
+                  <f:facet name="actions">
+                    <tr:panelButtonBar>
+                      <tr:commandButton text="Edit" actionListener="#{multiselectionhandler.editSelected}"
+                                        binding="#{multiselectionhandler.editButton}"/>
+                      <tr:commandButton text="Commit" binding="#{multiselectionhandler.commitButton}"
+                                        actionListener="#{multiselectionhandler.commitEdited}"/>
+                    </tr:panelButtonBar>
+                  </f:facet>
+                </tr:table>
+              </tr:showDetailItem>
+            </tr:panelTabbed>
+          </tr:panelPage>
+        </tr:form>
+      </trh:body>
+    </trh:html>
+  </f:view>
+</jsp:root>

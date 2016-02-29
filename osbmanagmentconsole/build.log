@@ -1,0 +1,60 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OSB Managment Console 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ omc ---
+[WARNING] Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 8 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.1:compile (default-compile) @ omc ---
+[WARNING] File encoding has not been set, using platform encoding GBK, i.e. build is platform dependent!
+[INFO] Compiling 4 source files to C:\Users\huabzhao\Documents\GitHub\practices\osbmanagmentconsole\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ omc ---
+[WARNING] Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.1:testCompile (default-testCompile) @ omc ---
+[WARNING] File encoding has not been set, using platform encoding GBK, i.e. build is platform dependent!
+[INFO] Compiling 1 source file to C:\Users\huabzhao\Documents\GitHub\practices\osbmanagmentconsole\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ omc ---
+[INFO] Surefire report directory: C:\Users\huabzhao\Documents\GitHub\practices\osbmanagmentconsole\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.oracle.oc2.omc.utils.I18NUtilTest
+2015-02-05 17:55:01 [org.springframework.test.context.support.DefaultTestContextBootstrapper]-[INFO] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2015-02-05 17:55:01 [org.springframework.test.context.support.DefaultTestContextBootstrapper]-[INFO] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7d9d1a19, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@39c0f4a, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1794d431, org.springframework.test.context.transaction.TransactionalTestExecutionListener@42e26948, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@57baeedf]
+2015-02-05 17:55:01 [org.springframework.beans.factory.xml.XmlBeanDefinitionReader]-[INFO] Loading XML bean definitions from class path resource [config/applicationContext.xml]
+2015-02-05 17:55:01 [org.springframework.context.support.GenericApplicationContext]-[INFO] Refreshing org.springframework.context.support.GenericApplicationContext@31dc339b: startup date [Thu Feb 05 17:55:01 CST 2015]; root of context hierarchy
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.852 sec
+2015-02-05 17:55:01 [org.springframework.context.support.GenericApplicationContext]-[INFO] Closing org.springframework.context.support.GenericApplicationContext@31dc339b: startup date [Thu Feb 05 17:55:01 CST 2015]; root of context hierarchy
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-war-plugin:2.2:war (default-war) @ omc ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [omc] in [C:\Users\huabzhao\Documents\GitHub\practices\osbmanagmentconsole\target\OSBManagmentConsole]
+[INFO] Processing war project
+[INFO] Copying webapp resources [C:\Users\huabzhao\Documents\GitHub\practices\osbmanagmentconsole\src\main\webapp]
+[INFO] Webapp assembled in [485 msecs]
+[INFO] Building war: C:\Users\huabzhao\Documents\GitHub\practices\osbmanagmentconsole\target\OSBManagmentConsole.war
+[INFO] WEB-INF\web.xml already added, skipping
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ omc ---
+[INFO] Installing C:\Users\huabzhao\Documents\GitHub\practices\osbmanagmentconsole\target\OSBManagmentConsole.war to D:\maven\repository\com\oracle\oc2\omc\1.0-SNAPSHOT\omc-1.0-SNAPSHOT.war
+[INFO] Installing C:\Users\huabzhao\Documents\GitHub\practices\osbmanagmentconsole\pom.xml to D:\maven\repository\com\oracle\oc2\omc\1.0-SNAPSHOT\omc-1.0-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 7.742 s
+[INFO] Finished at: 2015-02-05T17:55:04+08:00
+[INFO] Final Memory: 29M/199M
+[INFO] ------------------------------------------------------------------------

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="GBK" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="HRServiceAppModule"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true"
+  ComponentClass="com.oracle.huabing.model.service.HRServiceAppModuleImpl"
+  ComponentInterface="com.oracle.huabing.model.service.common.HRServiceAppModule">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="DepartmentEOView1"
+    ViewObjectName="com.oracle.huabing.model.view.DepartmentEOView"/>
+  <ViewUsage
+    Name="EmployeeEOView1"
+    ViewObjectName="com.oracle.huabing.model.view.EmployeeEOView"/>
+  <ViewUsage
+    Name="DepartmentEOView2"
+    ViewObjectName="com.oracle.huabing.model.view.DepartmentEOView"/>
+  <ViewUsage
+    Name="EmployeeEOView2"
+    ViewObjectName="com.oracle.huabing.model.view.EmployeeEOView"/>
+  <ViewUsage
+    Name="EmployeeEOView3"
+    ViewObjectName="com.oracle.huabing.model.view.EmployeeEOView"/>
+  <ViewUsage
+    Name="LocationsView1"
+    ViewObjectName="com.oracle.huabing.model.view.LocationsView"/>
+  <ViewLinkUsage
+    Name="DeptMgrFkLink1"
+    ViewLinkObjectName="com.oracle.huabing.model.view.link.DeptMgrFkLink"
+    SrcViewUsageName="com.oracle.huabing.model.service.HRServiceAppModule.EmployeeEOView1"
+    DstViewUsageName="com.oracle.huabing.model.service.HRServiceAppModule.DepartmentEOView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="EmpManagerFkLink1"
+    ViewLinkObjectName="com.oracle.huabing.model.view.link.EmpManagerFkLink"
+    SrcViewUsageName="com.oracle.huabing.model.service.HRServiceAppModule.EmployeeEOView1"
+    DstViewUsageName="com.oracle.huabing.model.service.HRServiceAppModule.EmployeeEOView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="EmpDeptFkLink1"
+    ViewLinkObjectName="com.oracle.huabing.model.view.link.EmpDeptFkLink"
+    SrcViewUsageName="com.oracle.huabing.model.service.HRServiceAppModule.DepartmentEOView1"
+    DstViewUsageName="com.oracle.huabing.model.service.HRServiceAppModule.EmployeeEOView3"
+    Reversed="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="setDepartmentName"
+      MethodName="setDepartmentName">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+      <Parameter
+        Name="name"
+        Type="java.lang.String"/>
+    </Method>
+  </ClientInterface>
+</AppModule>

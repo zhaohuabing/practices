@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.2.60.80" id="DataBindings"
+             SeparateXMLFiles="false" Package="adf.sample.hrapplication.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adfm/dvt"
+             className="oracle.adfinternal.view.faces.dvt.model.binding.FacesBindingFactory"/>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/userProfile/UserProfile.jsff" usageId="adf_sample_hrapplication_view_UserProfilePageDef"/>
+    <page path="/salaryOverview/SalaryOverview.jsff" usageId="adf_sample_hrapplication_view_SalaryOverviewPageDef"/>
+    <page path="/searchEmployees/SearchEmployees.jsff" usageId="adf_sample_hrapplication_view_SearchUsersPageDef"/>
+    <page path="/Home.jsf" usageId="adf_sample_hrapplication_view_HomePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="adf_sample_hrapplication_view_UserProfilePageDef"
+          path="adf.sample.hrapplication.view.pageDefs.UserProfilePageDef"/>
+    <page id="adf_sample_hrapplication_view_SalaryOverviewPageDef" path="salaryOverview.SalaryOverviewPageDef"/>
+    <page id="adf_sample_hrapplication_view_SearchUsersPageDef"
+          path="adf.sample.hrapplication.view.pageDefs.SearchUsersPageDef"/>
+    <page id="adf_sample_hrapplication_view_HomePageDef" path="adf.sample.hrapplication.view.pageDefs.HomePageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleDataControl" Package="adf.sample.model.services"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

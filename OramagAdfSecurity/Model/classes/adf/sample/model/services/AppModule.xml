@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="11.1.2.60.80"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="allDepartments"
+    ViewObjectName="adf.sample.model.views.DepartmentsView">
+    <ViewCriteriaUsage
+      Name="DepartmentsHavingEmployees"
+      FullName="adf.sample.model.views.DepartmentsView.DepartmentsHavingEmployees"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="employeesInDepartment"
+    ViewObjectName="adf.sample.model.views.EmployeesView"/>
+  <ViewUsage
+    Name="allEmployees"
+    ViewObjectName="adf.sample.model.views.EmployeesView"/>
+  <ViewUsage
+    Name="Reportees"
+    ViewObjectName="adf.sample.model.views.EmployeesView"/>
+  <ViewUsage
+    Name="allJobs"
+    ViewObjectName="adf.sample.model.views.JobsView"/>
+  <ViewUsage
+    Name="allLocations"
+    ViewObjectName="adf.sample.model.views.LocationsView"/>
+  <ViewUsage
+    Name="userinfo"
+    ViewObjectName="adf.sample.model.views.EmployeesView">
+    <ViewCriteriaUsage
+      Name="AuthenticatedUserViewCriteria"
+      FullName="adf.sample.model.views.EmployeesView.AuthenticatedUserViewCriteria"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="reportees"
+    ViewObjectName="adf.sample.model.views.EmployeesView"/>
+  <ViewLinkUsage
+    Name="EmpDeptFkLink1"
+    ViewLinkObjectName="adf.sample.model.links.EmpDeptFkLink"
+    SrcViewUsageName="adf.sample.model.services.AppModule.allDepartments"
+    DstViewUsageName="adf.sample.model.services.AppModule.employeesInDepartment"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="EmpManagerFkLink1"
+    ViewLinkObjectName="adf.sample.model.links.EmpManagerFkLink"
+    SrcViewUsageName="adf.sample.model.services.AppModule.allEmployees"
+    DstViewUsageName="adf.sample.model.services.AppModule.Reportees"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="EmpManagerFkLink2"
+    ViewLinkObjectName="adf.sample.model.links.EmpManagerFkLink"
+    SrcViewUsageName="adf.sample.model.services.AppModule.userinfo"
+    DstViewUsageName="adf.sample.model.services.AppModule.reportees"
+    Reversed="false"/>
+</AppModule>

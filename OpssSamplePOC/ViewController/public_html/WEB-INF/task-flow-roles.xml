@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="task-flow-roles">
+    <default-activity id="__1">rolesView</default-activity>
+    <managed-bean id="__3">
+      <managed-bean-name id="__2">securityRoles</managed-bean-name>
+      <managed-bean-class id="__5">view.backing.securityRoles</managed-bean-class>
+      <managed-bean-scope id="__4">backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="rolesView">
+      <page>/rolesView.jsff</page>
+    </view>
+    <view id="edirRolesView">
+      <page>/edirRolesView.jsff</page>
+    </view>
+    <view id="deleteRoleView">
+      <page>/deleteRoleView.jsff</page>
+    </view>
+    <view id="resourceView">
+      <page>/resourceView.jsff</page>
+    </view>
+    <control-flow-rule id="__6">
+      <from-activity-id id="__7">rolesView</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome id="__10">edit</from-outcome>
+        <to-activity-id id="__8">edirRolesView</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome id="__13">delete</from-outcome>
+        <to-activity-id id="__11">deleteRoleView</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__30">
+        <from-outcome id="__32">resource</from-outcome>
+        <to-activity-id id="__31">resourceView</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__34">
+        <from-outcome id="__35">back4mResource</from-outcome>
+        <to-activity-id id="__33">resourceView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id id="__15">edirRolesView</from-activity-id>
+      <control-flow-case id="__17">
+        <from-outcome id="__18">backRole</from-outcome>
+        <to-activity-id id="__16">rolesView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__19">
+      <from-activity-id id="__20">deleteRoleView</from-activity-id>
+      <control-flow-case id="__21">
+        <from-outcome id="__23">back</from-outcome>
+        <to-activity-id id="__22">rolesView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

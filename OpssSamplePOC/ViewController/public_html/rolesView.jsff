@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+        <af:panelGroupLayout>
+                <af:panelFormLayout id="pfl1" rows="4">
+                        <af:inputText label="Role Name" id="it1"
+                                      binding="#{backingBeanScope.securityRoles.roleName}"/>
+                        <af:inputText label="Display Name" id="it2"
+                                      binding="#{backingBeanScope.securityRoles.displayName}"/>
+                        <af:inputText label="Description" id="it3"
+                                      binding="#{backingBeanScope.securityRoles.description}"/>
+                        <af:panelGroupLayout id="pgl1" layout="horizontal">
+                                <af:commandButton text="Create Role" id="cb1"
+                                                  actionListener="#{backingBeanScope.securityRoles.createNewRole}"/>
+                                <af:commandButton text="Edit Role"
+                                                  id="cb2" action="edit"/>
+                                <af:commandButton text="Delete Role"
+                                                  id="cb3" action="delete"/>                  
+                        </af:panelGroupLayout>
+                        <af:commandButton text="Component EnableTest" id="cb4"/>
+                </af:panelFormLayout>
+        </af:panelGroupLayout>
+</jsp:root>

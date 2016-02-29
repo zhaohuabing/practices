@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8"
+                id="adfc_config___ExecuteWithParamsPageDef" Package="view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="EmployeeEOView1" RangeSize="25" DataControl="HRServiceAppModuleDataControl"
+              id="EmployeeEOView1Iterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="EmployeeEOView1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="bindVarDepartmentId" NDValue=" #{requestScope.deptId}" NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>

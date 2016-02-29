@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+    <af:panelSplitter id="ps2" orientation="vertical" splitterPosition="300">
+        <f:facet name="first">
+            <af:panelSplitter id="ps1" splitterPosition="490">
+                <f:facet name="first">
+                    <af:panelHeader text="Salaries by Department" id="ph2">
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <dvt:barGraph id="graph1" value="#{bindings.allDepartments.graphModel}" subType="BAR_VERT_CLUST"
+                                      clickListener="#{bindings.allDepartments.graphModel.processClick}"
+                                      shortDesc="Overview of Salaries in Department" inlineStyle="height:250px;">
+                            <dvt:background>
+                                <dvt:specialEffects/>
+                            </dvt:background>
+                            <dvt:graphPlotArea/>
+                            <dvt:seriesSet>
+                                <dvt:series/>
+                            </dvt:seriesSet>
+                            <dvt:o1Axis/>
+                            <dvt:y1Axis/>
+                            <dvt:legendArea automaticPlacement="AP_NEVER"/>
+                        </dvt:barGraph>
+                    </af:panelHeader>
+                </f:facet>
+                <f:facet name="second">
+                    <af:panelBox text="#{bindings.DepartmentName.inputValue}" id="pb1" showDisclosure="false"
+                                 partialTriggers="graph1">
+                        <f:facet name="toolbar"/>
+                        <af:panelCollection id="pc1" inlineStyle="height:250px;">
+                            <f:facet name="menus"/>
+                            <f:facet name="toolbar"/>
+                            <f:facet name="statusbar"/>
+                            <af:table value="#{bindings.employeesInDepartment.collectionModel}" var="row"
+                                      rows="#{bindings.employeesInDepartment.rangeSize}"
+                                      emptyText="#{bindings.employeesInDepartment.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      fetchSize="#{bindings.employeesInDepartment.rangeSize}" rowBandingInterval="0"
+                                      id="t1">
+                                <af:column sortProperty="#{bindings.employeesInDepartment.hints.EmployeeId.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.employeesInDepartment.hints.EmployeeId.label}" id="c1"
+                                           width="105">
+                                    <af:outputText value="#{row.EmployeeId}" id="ot1">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.employeesInDepartment.hints.EmployeeId.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.employeesInDepartment.hints.FirstName.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.employeesInDepartment.hints.FirstName.label}" id="c2"
+                                           width="103">
+                                    <af:outputText value="#{row.FirstName}" id="ot2"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.employeesInDepartment.hints.LastName.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.employeesInDepartment.hints.LastName.label}" id="c3"
+                                           width="107">
+                                    <af:outputText value="#{row.LastName}" id="ot3"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.employeesInDepartment.hints.Email.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.employeesInDepartment.hints.Email.label}" id="c4"
+                                           width="105">
+                                    <af:outputText value="#{row.Email}" id="ot4"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.employeesInDepartment.hints.HireDate.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.employeesInDepartment.hints.HireDate.label}" id="c5"
+                                           width="51">
+                                    <af:outputText value="#{row.HireDate}" id="ot5">
+                                        <af:convertDateTime pattern="#{bindings.employeesInDepartment.hints.HireDate.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.employeesInDepartment.hints.Salary.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.employeesInDepartment.hints.Salary.label}" id="c6">
+                                    <af:outputText value="#{row.Salary}" id="ot6"/>
+                                </af:column>
+                            </af:table>
+                        </af:panelCollection>
+                    </af:panelBox>
+                </f:facet>
+            </af:panelSplitter>
+        </f:facet>
+        <f:facet name="second">
+            <af:panelHeader text="Reporting Employees" id="ph1">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="legend"/>
+                <f:facet name="info"/>
+                <dvt:barGraph id="graph2" value="#{bindings.reportees.graphModel}" subType="BAR_VERT_CLUST"
+                              shortDesc="Salaries of reportees" inlineStyle="height:250px;">
+                    <dvt:background>
+                        <dvt:specialEffects/>
+                    </dvt:background>
+                    <dvt:graphPlotArea/>
+                    <dvt:seriesSet>
+                        <dvt:series/>
+                    </dvt:seriesSet>
+                    <dvt:o1Axis/>
+                    <dvt:y1Axis/>
+                    <dvt:legendArea automaticPlacement="AP_NEVER"/>
+                </dvt:barGraph>
+            </af:panelHeader>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>
